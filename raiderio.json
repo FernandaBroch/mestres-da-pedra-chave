@@ -1,0 +1,449 @@
+{
+  "name": "Shampug",
+  "race": "Night Elf",
+  "class": "Druid",
+  "active_spec_name": "Restoration",
+  "active_spec_role": "HEALING",
+  "gender": "female",
+  "faction": "alliance",
+  "achievement_points": 23030,
+  "honorable_kills": 0,
+  "thumbnail_url": "https://render-us.worldofwarcraft.com/character/stormrage/231/247306215-avatar.jpg?alt=wow/static/images/2d/avatar/4-1.jpg",
+  "region": "us",
+  "realm": "Stormrage",
+  "last_crawled_at": "2022-09-06T18:57:41.000Z",
+  "profile_url": "https://raider.io/characters/us/stormrage/Shampug",
+  "profile_banner": "alliancebanner1",
+  "mythic_plus_recent_runs": [
+      {
+          "dungeon": "Mechagon Workshop",
+          "short_name": "WORK",
+          "mythic_level": 9,
+          "completed_at": "2022-09-07T06:03:15.000Z",
+          "clear_time_ms": 1423711,
+          "par_time_ms": 1920999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 370,
+          "zone_id": 800002,
+          "score": 88.2,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 122,
+                  "name": "Inspiring",
+                  "description": "Some non-boss enemies have an inspiring presence that strengthens their allies.",
+                  "icon": "spell_holy_prayerofspirit",
+                  "wowhead_url": "https://wowhead.com/affix=122"
+              },
+              {
+                  "id": 12,
+                  "name": "Grievous",
+                  "description": "Injured players suffer increasing damage over time until healed.",
+                  "icon": "ability_backstab",
+                  "wowhead_url": "https://wowhead.com/affix=12"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/6263588-9-operation-mechagon-workshop"
+      },
+      {
+          "dungeon": "Grimrail Depot",
+          "short_name": "GD",
+          "mythic_level": 11,
+          "completed_at": "2022-09-07T05:15:02.000Z",
+          "clear_time_ms": 1182837,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 166,
+          "zone_id": 6984,
+          "score": 109.3,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 122,
+                  "name": "Inspiring",
+                  "description": "Some non-boss enemies have an inspiring presence that strengthens their allies.",
+                  "icon": "spell_holy_prayerofspirit",
+                  "wowhead_url": "https://wowhead.com/affix=122"
+              },
+              {
+                  "id": 12,
+                  "name": "Grievous",
+                  "description": "Injured players suffer increasing damage over time until healed.",
+                  "icon": "ability_backstab",
+                  "wowhead_url": "https://wowhead.com/affix=12"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/6261292-11-grimrail-depot"
+      },
+      {
+          "dungeon": "Tazavesh: Streets of Wonder",
+          "short_name": "STRT",
+          "mythic_level": 15,
+          "completed_at": "2022-09-04T00:21:42.000Z",
+          "clear_time_ms": 1699728,
+          "par_time_ms": 2340999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 391,
+          "zone_id": 1000000,
+          "score": 128.4,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 6,
+                  "name": "Raging",
+                  "description": "Non-boss enemies enrage at 30% health remaining, dealing 50% increased damage until defeated.",
+                  "icon": "ability_warrior_focusedrage",
+                  "wowhead_url": "https://wowhead.com/affix=6"
+              },
+              {
+                  "id": 3,
+                  "name": "Volcanic",
+                  "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+                  "icon": "spell_shaman_lavasurge",
+                  "wowhead_url": "https://wowhead.com/affix=3"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/5834894-15-tazavesh-streets-of-wonder"
+      },
+      {
+          "dungeon": "Grimrail Depot",
+          "short_name": "GD",
+          "mythic_level": 15,
+          "completed_at": "2022-09-03T23:36:42.000Z",
+          "clear_time_ms": 1094605,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 166,
+          "zone_id": 6984,
+          "score": 129.9,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 6,
+                  "name": "Raging",
+                  "description": "Non-boss enemies enrage at 30% health remaining, dealing 50% increased damage until defeated.",
+                  "icon": "ability_warrior_focusedrage",
+                  "wowhead_url": "https://wowhead.com/affix=6"
+              },
+              {
+                  "id": 3,
+                  "name": "Volcanic",
+                  "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+                  "icon": "spell_shaman_lavasurge",
+                  "wowhead_url": "https://wowhead.com/affix=3"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/5827652-15-grimrail-depot"
+      },
+      {
+          "dungeon": "Mechagon Junkyard",
+          "short_name": "YARD",
+          "mythic_level": 17,
+          "completed_at": "2022-09-03T23:01:39.000Z",
+          "clear_time_ms": 1356852,
+          "par_time_ms": 2280999,
+          "num_keystone_upgrades": 3,
+          "map_challenge_mode_id": 369,
+          "zone_id": 800001,
+          "score": 140,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 6,
+                  "name": "Raging",
+                  "description": "Non-boss enemies enrage at 30% health remaining, dealing 50% increased damage until defeated.",
+                  "icon": "ability_warrior_focusedrage",
+                  "wowhead_url": "https://wowhead.com/affix=6"
+              },
+              {
+                  "id": 3,
+                  "name": "Volcanic",
+                  "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+                  "icon": "spell_shaman_lavasurge",
+                  "wowhead_url": "https://wowhead.com/affix=3"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/5833421-17-operation-mechagon-junkyard"
+      },
+      {
+          "dungeon": "Iron Docks",
+          "short_name": "ID",
+          "mythic_level": 15,
+          "completed_at": "2022-09-03T22:23:52.000Z",
+          "clear_time_ms": 1187728,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 169,
+          "zone_id": 6951,
+          "score": 129.3,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 6,
+                  "name": "Raging",
+                  "description": "Non-boss enemies enrage at 30% health remaining, dealing 50% increased damage until defeated.",
+                  "icon": "ability_warrior_focusedrage",
+                  "wowhead_url": "https://wowhead.com/affix=6"
+              },
+              {
+                  "id": 3,
+                  "name": "Volcanic",
+                  "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+                  "icon": "spell_shaman_lavasurge",
+                  "wowhead_url": "https://wowhead.com/affix=3"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/5821872-15-iron-docks"
+      },
+      {
+          "dungeon": "Return to Karazhan: Upper",
+          "short_name": "UPPR",
+          "mythic_level": 15,
+          "completed_at": "2022-09-01T20:24:40.000Z",
+          "clear_time_ms": 1420911,
+          "par_time_ms": 2100999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 234,
+          "zone_id": 999999,
+          "score": 129,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 6,
+                  "name": "Raging",
+                  "description": "Non-boss enemies enrage at 30% health remaining, dealing 50% increased damage until defeated.",
+                  "icon": "ability_warrior_focusedrage",
+                  "wowhead_url": "https://wowhead.com/affix=6"
+              },
+              {
+                  "id": 3,
+                  "name": "Volcanic",
+                  "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+                  "icon": "spell_shaman_lavasurge",
+                  "wowhead_url": "https://wowhead.com/affix=3"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/5536983-15-return-to-karazhan-upper"
+      },
+      {
+          "dungeon": "Tazavesh: So'leah's Gambit",
+          "short_name": "GMBT",
+          "mythic_level": 16,
+          "completed_at": "2022-08-11T21:43:09.000Z",
+          "clear_time_ms": 1501710,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 392,
+          "zone_id": 1000001,
+          "score": 132.1,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 8,
+                  "name": "Sanguine",
+                  "description": "When slain, non-boss enemies leave behind a lingering pool of ichor that heals their allies and damages players.",
+                  "icon": "spell_shadow_bloodboil",
+                  "wowhead_url": "https://wowhead.com/affix=8"
+              },
+              {
+                  "id": 12,
+                  "name": "Grievous",
+                  "description": "Injured players suffer increasing damage over time until healed.",
+                  "icon": "ability_backstab",
+                  "wowhead_url": "https://wowhead.com/affix=12"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/1851121-16-tazavesh-soleahs-gambit"
+      },
+      {
+          "dungeon": "Mechagon Junkyard",
+          "short_name": "YARD",
+          "mythic_level": 16,
+          "completed_at": "2022-08-11T21:14:09.000Z",
+          "clear_time_ms": 1746893,
+          "par_time_ms": 2280999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 369,
+          "zone_id": 800001,
+          "score": 132.9,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 8,
+                  "name": "Sanguine",
+                  "description": "When slain, non-boss enemies leave behind a lingering pool of ichor that heals their allies and damages players.",
+                  "icon": "spell_shadow_bloodboil",
+                  "wowhead_url": "https://wowhead.com/affix=8"
+              },
+              {
+                  "id": 12,
+                  "name": "Grievous",
+                  "description": "Injured players suffer increasing damage over time until healed.",
+                  "icon": "ability_backstab",
+                  "wowhead_url": "https://wowhead.com/affix=12"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/1837911-16-operation-mechagon-junkyard"
+      },
+      {
+          "dungeon": "Tazavesh: So'leah's Gambit",
+          "short_name": "GMBT",
+          "mythic_level": 10,
+          "completed_at": "2022-08-08T00:12:40.000Z",
+          "clear_time_ms": 1245045,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 392,
+          "zone_id": 1000001,
+          "score": 103.9,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 122,
+                  "name": "Inspiring",
+                  "description": "Some non-boss enemies have an inspiring presence that strengthens their allies.",
+                  "icon": "spell_holy_prayerofspirit",
+                  "wowhead_url": "https://wowhead.com/affix=122"
+              },
+              {
+                  "id": 14,
+                  "name": "Quaking",
+                  "description": "Periodically, all players emit a shockwave, inflicting damage and interrupting nearby allies.",
+                  "icon": "spell_nature_earthquake",
+                  "wowhead_url": "https://wowhead.com/affix=14"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/1068063-10-tazavesh-soleahs-gambit"
+      }
+  ]
+}
