@@ -70,7 +70,7 @@ class CharacterIOCard extends React.Component {
       let score = calculateMythicScore(mythicPlusRecentRuns)
       return (
         <div className="col s12 m4">
-          <div className="col s12 m10">
+          <div className="col s12 m11">
             <div className="row">
               <div className="card">
                 <div className="card-image">
@@ -85,7 +85,7 @@ class CharacterIOCard extends React.Component {
                   <ul className="collection">
                     {filterMythicPlusChampionshipRuns(mythicPlusRecentRuns).map((item, index) => (
                       <li key={index} className="collection-item">
-                        {item.dungeon}: <span className="right">{item.score}</span>
+                        {item.mythic_level}-{item.dungeon}: <span className="right">{item.score}</span>
                       </li>
                     ))}
                   </ul>
@@ -101,9 +101,6 @@ class CharacterIOCard extends React.Component {
 
 let competitors = [
   {
-    charName: "Shampug",
-    realm: "Stormrage"
-  }, {
     charName: "Dayvinho",
     realm: "Azralon"
   },
@@ -114,6 +111,14 @@ let competitors = [
   {
     charName: "Bircemaria",
     realm: "Azralon"
+  },
+  {
+    charName: "Jackiexan",
+    realm: "Gallywix"
+  },
+  {
+    charName: "Shampug",
+    realm: "Stormrage"
   }
 
 ]
