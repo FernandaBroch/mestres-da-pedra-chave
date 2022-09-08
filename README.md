@@ -15,12 +15,7 @@ Os pontos totais são a soma do campo "score" da dungeons realizada em datas pos
 
 <img src="images/site1.png" width="500">
 
-Detalhamento da pontuação
-
-<img src="images/site2.png" width="185">
-
-
 ## Demo
 
-- [Demo](https://legendary-granita-b2709c.netlify.app/)
+- [https://legendary-granita-b2709c.netlify.app/](https://legendary-granita-b2709c.netlify.app/)
 
