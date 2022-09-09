@@ -4,25 +4,32 @@ const e = React.createElement
 const BASE_URL = "https://raider.io/api/v1/characters/profile"
 
 //let championshipDate = new Date("2022-09-04T00:21:42.000Z")
-//let championshipDate = new Date(document.getElementById('data').value)
-let championshipDate = new Date(document.querySelector('#data').innerText)
 let region = "us"
 let fields = "mythic_plus_recent_runs"
-
+let championshipDate = null
 
 let convertDateToJSDate = (date) => {
   return new Date(date)
 }
-
-let filterMythicPlusChampionshipRuns = (mythicPlusRuns) => {
+let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipDate) => {
   return mythicPlusRuns.filter((currentValue) => {
     return convertDateToJSDate(currentValue.completed_at) > championshipDate
   })
 }
-
-let calculateMythicScore = (mythicPlusRecentRuns) => {
-  let mythicPlusChampionshipRuns = filterMythicPlusChampionshipRuns(mythicPlusRecentRuns)
+let calculateMythicScore = (mythicPlusChampionshipRuns) => {
   return mythicPlusChampionshipRuns.reduce((score, obj) => { return score + obj.score }, 0).toFixed(2)
+}
+
+let setDateAndTime = (date, time) => {
+  let data = null
+  document.getElementById("data").innerText = date + " " + time + "hs"
+  if (time.length == 7)
+    data = `${date}T0${time}`
+  else
+    data = `${date}T${time}`
+  data = new Date(data)
+  data.setHours(data.getUTCHours() - 3)
+  return data
 }
 
 class CharacterIOCard extends React.Component {
@@ -35,7 +42,9 @@ class CharacterIOCard extends React.Component {
       result: null,
       mythicPlusRecentRuns: [],
       realm: props.realm,
-      charName: props.charName
+      charName: props.charName,
+      date: props.date,
+      time: props.time
     }
   }
 
@@ -61,13 +70,18 @@ class CharacterIOCard extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, result, mythicPlusRecentRuns } = this.state
+    const { error, isLoaded, result, mythicPlusRecentRuns, date, time } = this.state
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
       return <div>Loading...</div>
     } else if (result) {
-      let score = calculateMythicScore(mythicPlusRecentRuns)
+      if (date != null) {
+        championshipDate = setDateAndTime(date, time)
+      }
+      console.log(championshipDate)
+      let mythicPlusChampionshipRuns = filterMythicPlusChampionshipRuns(mythicPlusRecentRuns, championshipDate)
+      let score = calculateMythicScore(mythicPlusChampionshipRuns)
       return (
         <div className="col s12 m4">
           <div className="col s12 m11">
@@ -83,7 +97,7 @@ class CharacterIOCard extends React.Component {
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
                   <ul className="collection">
-                    {filterMythicPlusChampionshipRuns(mythicPlusRecentRuns).map((item, index) => (
+                    {mythicPlusChampionshipRuns.map((item, index) => (
                       <li key={index} className="collection-item">
                         {item.mythic_level}-{item.dungeon}: <span className="right">{item.score}</span>
                       </li>
@@ -99,52 +113,49 @@ class CharacterIOCard extends React.Component {
   }
 }
 
-let competitors = [
-  {
-    charName: "Dayvinho",
-    realm: "Azralon"
-  },
-  {
-    charName: "Zuwang",
-    realm: "Azralon"
-  },
-  {
-    charName: "Bircemaria",
-    realm: "Azralon"
-  },
-  {
-    charName: "Jackiexan",
-    realm: "Gallywix"
-  },
-  {
-    charName: "Shampug",
-    realm: "Stormrage"
-  }
+let findCompetitors = () => {
+  let competitors = []
+  let spreadsheet_id = "1a0JC-J--zD4qBdt9jAiEucNEGAbl0ppOz82qH1wQ7d4"
+  let sheet_name = "tabela"
+  const GOOGLE_SHEET_URL = `https://opensheet.elk.sh/${spreadsheet_id}/${sheet_name}`
 
-]
-competitors.forEach(competitor => {
-  addElementDiv("#root", "react-card")
-})
-
-function addElement(parentDiv, elementType, callback) {
-  const newDiv = document.createElement(elementType)
-  callback(newDiv)
-  document.querySelector(parentDiv).appendChild(newDiv)
-}
-
-function addElementDiv(parentDivID, className) {
-  addElement(parentDivID, "div", (newDiv) => {
-    newDiv.setAttribute('class', className)
-  })
-}
-
-document.querySelectorAll('.react-card')
-  .forEach((domContainer, key) => {
-    const root = ReactDOM.createRoot(domContainer)
-    root.render(
-      e(CharacterIOCard, {
-        charName: competitors[key].charName,
-        realm: competitors[key].realm
+  fetch(GOOGLE_SHEET_URL)
+    .then(res => res.json())
+    .then(rows => {
+      rows.forEach(row => {
+        if (row.hasOwnProperty('NomeDoPersonagem') && row.hasOwnProperty('ReinoDoPersonagem')) {
+          competitors.push(row)
+        }
       })
-    )
-  })
+      competitors.forEach(competitor => {
+        addElementDiv("#root", "react-card")
+      })
+      function addElement(parentDiv, elementType, callback) {
+        const newDiv = document.createElement(elementType)
+        callback(newDiv)
+        document.querySelector(parentDiv).appendChild(newDiv)
+      }
+
+      function addElementDiv(parentDivID, className) {
+        addElement(parentDivID, "div", (newDiv) => {
+          newDiv.setAttribute('class', className)
+        })
+      }
+      document.querySelectorAll('.react-card')
+        .forEach((domContainer, key) => {
+          const root = ReactDOM.createRoot(domContainer)
+          root.render(
+            e(CharacterIOCard, {
+              charName: competitors[key].NomeDoPersonagem,
+              realm: competitors[key].ReinoDoPersonagem,
+              date: competitors[key].Data,
+              time: competitors[key].Hora
+            })
+          )
+        })
+    })
+
+}
+
+findCompetitors()
+
