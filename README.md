@@ -44,6 +44,9 @@ Eles são calculados obtendo o resultado do campo "mythic_plus_recent_runs" e fi
 Os pontos totais são a soma do campo "score" da dungeons realizada em datas posteriores a data inserida.
 
 ## Google Sheets
+Para a conexão com o Google Sheets foi utilizado a Google Sheets API descrita no blog [https://benborgers.com/](https://benborgers.com/posts/google-sheets-without-oauth) para extrais os dados da planilha sem uso de autenticação.
+
+Detalhes da API no github: [https://github.com/mikeymckay/google-spreadsheet-javascript](https://github.com/mikeymckay/google-spreadsheet-javascript)
 
 ## Screenshots
 
