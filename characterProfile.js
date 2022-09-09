@@ -1,6 +1,4 @@
 const e = React.createElement
-
-//const BASE_URL = 'http://127.0.0.1:5500/raiderio.json'
 const BASE_URL = "https://raider.io/api/v1/characters/profile"
 
 //let championshipDate = new Date("2022-09-04T00:21:42.000Z")
