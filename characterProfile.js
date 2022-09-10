@@ -14,7 +14,7 @@ let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipDate) => {
     return convertDateToJSDate(currentValue.completed_at) > championshipDate
   })
 }
-let addElement = (parentDiv, elementType, callback) =>{
+let addElement = (parentDiv, elementType, callback) => {
   const newDiv = document.createElement(elementType)
   callback(newDiv)
   document.querySelector(parentDiv).appendChild(newDiv)
@@ -42,11 +42,12 @@ let setDateAndTime = (date, time) => {
 }
 let setHtmlAttribute = (atrib1, atrib2) => {
   let result = atrib1
-  if(atrib2 != ""){
+  if (atrib2 != "") {
     result = atrib2
-  }  
+  }
   return result
 }
+
 
 class CharacterIOCard extends React.Component {
 
@@ -98,7 +99,7 @@ class CharacterIOCard extends React.Component {
         championshipDate = setDateAndTime(date, time)
       }
       let mythicPlusChampionshipRuns = filterMythicPlusChampionshipRuns(mythicPlusRecentRuns, championshipDate)
-      
+
       let score = calculateMythicScore(mythicPlusChampionshipRuns)
       let charPicture = setHtmlAttribute(result.thumbnail_url, picture)
       let charLink = setHtmlAttribute(result.profile_url, twitch)
@@ -107,13 +108,14 @@ class CharacterIOCard extends React.Component {
           <div className="col s12 m11">
             <div className="row">
               <div className="card">
-                <div className="card-image">
+                <div className="card-image activator">
                   <img src={charPicture} alt="Character Image" />
-                  <span className="card-title">{result.name}</span>                  
+                  <span className="card-title">{result.name}</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
-                  <h3 className="card-title activator center grey-text text-darken-4">{score}<i className="material-icons right">more_vert</i></h3>
-                  <p><a href={charLink}>{charLink}</a></p>
+                  <h3 className="card-title center grey-text text-darken-4">{score}</h3>
+                  <p><a href={charLink} targer="_blank">{charLink}</a></p>
                 </div>
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
@@ -151,7 +153,7 @@ let findCompetitors = () => {
       competitors.forEach(competitor => {
         addElementDiv("#root", "react-card")
       })
-      
+
       document.querySelectorAll('.react-card')
         .forEach((domContainer, key) => {
           const root = ReactDOM.createRoot(domContainer)
