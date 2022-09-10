@@ -14,6 +14,17 @@ let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipDate) => {
     return convertDateToJSDate(currentValue.completed_at) > championshipDate
   })
 }
+let addElement = (parentDiv, elementType, callback) =>{
+  const newDiv = document.createElement(elementType)
+  callback(newDiv)
+  document.querySelector(parentDiv).appendChild(newDiv)
+}
+
+let addElementDiv = (parentDivID, className) => {
+  addElement(parentDivID, "div", (newDiv) => {
+    newDiv.setAttribute('class', className)
+  })
+}
 let calculateMythicScore = (mythicPlusChampionshipRuns) => {
   return mythicPlusChampionshipRuns.reduce((score, obj) => { return score + obj.score }, 0).toFixed(2)
 }
@@ -29,6 +40,13 @@ let setDateAndTime = (date, time) => {
   data.setHours(data.getUTCHours() - 3)
   return data
 }
+let setHtmlAttribute = (atrib1, atrib2) => {
+  let result = atrib1
+  if(atrib2 != ""){
+    result = atrib2
+  }  
+  return result
+}
 
 class CharacterIOCard extends React.Component {
 
@@ -42,7 +60,9 @@ class CharacterIOCard extends React.Component {
       realm: props.realm,
       charName: props.charName,
       date: props.date,
-      time: props.time
+      time: props.time,
+      twitch: props.twitch,
+      picture: props.picture
     }
   }
 
@@ -68,7 +88,7 @@ class CharacterIOCard extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, result, mythicPlusRecentRuns, date, time } = this.state
+    const { error, isLoaded, result, mythicPlusRecentRuns, date, time, twitch, picture } = this.state
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
@@ -77,20 +97,23 @@ class CharacterIOCard extends React.Component {
       if (date != null) {
         championshipDate = setDateAndTime(date, time)
       }
-      console.log(championshipDate)
       let mythicPlusChampionshipRuns = filterMythicPlusChampionshipRuns(mythicPlusRecentRuns, championshipDate)
+      
       let score = calculateMythicScore(mythicPlusChampionshipRuns)
+      let charPicture = setHtmlAttribute(result.thumbnail_url, picture)
+      let charLink = setHtmlAttribute(result.profile_url, twitch)
       return (
         <div className="col s12 m4">
           <div className="col s12 m11">
             <div className="row">
               <div className="card">
                 <div className="card-image">
-                  <img src={result.thumbnail_url} alt="Character Image" />
-                  <span className="card-title">{result.name}</span>
+                  <img src={charPicture} alt="Character Image" />
+                  <span className="card-title">{result.name}</span>                  
                 </div>
                 <div className="card-content">
                   <h3 className="card-title activator center grey-text text-darken-4">{score}<i className="material-icons right">more_vert</i></h3>
+                  <p><a href={charLink}>{charLink}</a></p>
                 </div>
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
@@ -128,17 +151,7 @@ let findCompetitors = () => {
       competitors.forEach(competitor => {
         addElementDiv("#root", "react-card")
       })
-      function addElement(parentDiv, elementType, callback) {
-        const newDiv = document.createElement(elementType)
-        callback(newDiv)
-        document.querySelector(parentDiv).appendChild(newDiv)
-      }
-
-      function addElementDiv(parentDivID, className) {
-        addElement(parentDivID, "div", (newDiv) => {
-          newDiv.setAttribute('class', className)
-        })
-      }
+      
       document.querySelectorAll('.react-card')
         .forEach((domContainer, key) => {
           const root = ReactDOM.createRoot(domContainer)
@@ -147,12 +160,13 @@ let findCompetitors = () => {
               charName: competitors[key].NomeDoPersonagem,
               realm: competitors[key].ReinoDoPersonagem,
               date: competitors[key].Data,
-              time: competitors[key].Hora
+              time: competitors[key].Hora,
+              twitch: competitors[key].LinkDaTwitch,
+              picture: competitors[key].LinkDaFoto
             })
           )
         })
     })
-
 }
 
 findCompetitors()
