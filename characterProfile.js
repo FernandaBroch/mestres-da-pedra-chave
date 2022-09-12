@@ -4,7 +4,8 @@ const BASE_URL = "https://raider.io/api/v1/characters/profile"
 //let championshipDate = new Date("2022-09-04T00:21:42.000Z")
 let region = "us"
 let fields = "mythic_plus_recent_runs"
-let championshipDate = null
+let raiderIODataResult = []
+let errorResult = null
 
 let convertDateToJSDate = (date) => {
   return new Date(date)
@@ -18,13 +19,15 @@ let addElement = (parentDiv, elementType, callback) => {
   const newDiv = document.createElement(elementType)
   callback(newDiv)
   document.querySelector(parentDiv).appendChild(newDiv)
+  return newDiv
 }
 
 let addElementDiv = (parentDivID, className) => {
-  addElement(parentDivID, "div", (newDiv) => {
+  return addElement(parentDivID, "div", (newDiv) => {
     newDiv.setAttribute('class', className)
   })
 }
+
 let calculateMythicScore = (mythicPlusChampionshipRuns) => {
   return mythicPlusChampionshipRuns.reduce((score, obj) => { return score + obj.score }, 0).toFixed(2)
 }
@@ -47,7 +50,19 @@ let setHtmlAttribute = (atrib1, atrib2) => {
   }
   return result
 }
-
+let findCharacterIOData = (characterIOData, callback) => {
+  let GET_URL = `${BASE_URL}?region=${region}&realm=${characterIOData.ReinoDoPersonagem}&name=${characterIOData.NomeDoPersonagem}&fields=${fields}`
+  return fetch(GET_URL)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        raiderIODataResult.push(result)
+        return callback(result)
+      },
+      (error) => {
+        errorResult = error
+      })
+}
 
 class CharacterIOCard extends React.Component {
 
@@ -56,66 +71,46 @@ class CharacterIOCard extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      result: null,
-      mythicPlusRecentRuns: [],
       realm: props.realm,
       charName: props.charName,
       date: props.date,
       time: props.time,
       twitch: props.twitch,
-      picture: props.picture
+      picture: props.picture,
+      mythicPlusChampionshipRuns: props.mythicPlusChampionshipRuns,
+      score: props.score
     }
   }
 
   componentDidMount() {
-    let GET_URL = `${BASE_URL}?region=${region}&realm=${this.state.realm}&name=${this.state.charName}&fields=${fields}`
-    fetch(GET_URL)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            result: result,
-            mythicPlusRecentRuns: result.mythic_plus_recent_runs
-          })
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          })
-        }
-      )
+
+    if (raiderIODataResult) {
+      this.setState({
+        isLoaded: true,
+      })
+    }
   }
 
   render() {
-    const { error, isLoaded, result, mythicPlusRecentRuns, date, time, twitch, picture } = this.state
-    if (error) {
-      return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
+    const { isLoaded, twitch, picture, charName, score, mythicPlusChampionshipRuns } = this.state
+    if (!isLoaded) {
       return <div>Loading...</div>
-    } else if (result) {
-      if (date != null) {
-        championshipDate = setDateAndTime(date, time)
-      }
-      let mythicPlusChampionshipRuns = filterMythicPlusChampionshipRuns(mythicPlusRecentRuns, championshipDate)
+    } else if (raiderIODataResult) {
+      
 
-      let score = calculateMythicScore(mythicPlusChampionshipRuns)
-      let charPicture = setHtmlAttribute(result.thumbnail_url, picture)
-      let charLink = setHtmlAttribute(result.profile_url, twitch)
       return (
         <div className="col s12 m4">
           <div className="col s12 m11">
             <div className="row">
               <div className="card">
                 <div className="card-image activator">
-                  <img src={charPicture} alt="Character Image" />
-                  <span className="card-title">{result.name}</span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                  <img src={picture} alt="Character Image" />
+                  <span className="card-title">{charName}</span>
+                  <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
                   <h3 className="card-title center grey-text text-darken-4">{score}</h3>
-                  <p><a href={charLink} targer="_blank">{charLink}</a></p>
+                  <p><a href={twitch} targer="_blank">{twitch}</a></p>
                 </div>
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
@@ -147,28 +142,43 @@ let findCompetitors = () => {
     .then(rows => {
       rows.forEach(row => {
         if (row.hasOwnProperty('NomeDoPersonagem') && row.hasOwnProperty('ReinoDoPersonagem')) {
-          competitors.push(row)
+          competitors.push(row)          
         }
       })
-      competitors.forEach(competitor => {
-        addElementDiv("#root", "react-card")
-      })
+      
 
-      document.querySelectorAll('.react-card')
-        .forEach((domContainer, key) => {
-          const root = ReactDOM.createRoot(domContainer)
+      let competitorResults = competitors.map(competitor => {
+        return findCharacterIOData(competitor, (raiderIoData) => {
+          competitor.score = calculateMythicScore(filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora)))
+          competitor.charPicture = setHtmlAttribute(raiderIoData.thumbnail_url, competitor.LinkDaFoto)
+          competitor.charLink = setHtmlAttribute(raiderIoData.profile_url, competitor.LinkDaTwitch)
+          competitor.raiderIoData = raiderIoData
+          return competitor
+        })
+      })
+      console.log(competitorResults)
+
+      Promise.all(competitorResults).then((values) => {
+        values.sort((a, b) => b.score - a.score)
+        values.forEach(competitor => {
+          const reactCardDom = addElementDiv("#root", "react-card")
+          const root = ReactDOM.createRoot(reactCardDom)
           root.render(
             e(CharacterIOCard, {
-              charName: competitors[key].NomeDoPersonagem,
-              realm: competitors[key].ReinoDoPersonagem,
-              date: competitors[key].Data,
-              time: competitors[key].Hora,
-              twitch: competitors[key].LinkDaTwitch,
-              picture: competitors[key].LinkDaFoto
+              charName: competitor.NomeDoPersonagem,
+              realm: competitor.ReinoDoPersonagem,
+              date: competitor.Data,
+              time: competitor.Hora,
+              twitch: competitor.LinkDaTwitch,
+              picture: competitor.LinkDaFoto,
+              mythicPlusChampionshipRuns: filterMythicPlusChampionshipRuns(competitor.raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora)),
+              score: competitor.score
             })
           )
         })
+      })
     })
+
 }
 
 findCompetitors()
