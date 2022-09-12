@@ -169,8 +169,8 @@ let findCompetitors = () => {
               realm: competitor.ReinoDoPersonagem,
               date: competitor.Data,
               time: competitor.Hora,
-              twitch: competitor.LinkDaTwitch,
-              picture: competitor.LinkDaFoto,
+              twitch: competitor.charLink,
+              picture: competitor.charPicture,
               mythicPlusChampionshipRuns: filterMythicPlusChampionshipRuns(competitor.raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora)),
               score: competitor.score
             })
