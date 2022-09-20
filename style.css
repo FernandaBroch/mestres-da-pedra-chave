@@ -1,3 +1,7 @@
 body {
   background-color: #f1f1ff;
 }
+
+.card .card-title{
+  font-size: 18px;
+}

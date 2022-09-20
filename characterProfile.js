@@ -28,8 +28,15 @@ let addElementDiv = (parentDivID, className) => {
   })
 }
 
-let calculateMythicScore = (mythicPlusChampionshipRuns) => {
-  return mythicPlusChampionshipRuns.reduce((score, obj) => { return score + obj.score }, 0).toFixed(2)
+let findHighestMythicKey = (mythicPlusChampionshipRuns) => {
+  let result = []
+  mythicPlusChampionshipRuns.sort((a, b) => b.mythic_level - a.mythic_level)
+  if (mythicPlusChampionshipRuns.length > 0) {
+    result.score = mythicPlusChampionshipRuns[0].score
+    result.mythicLevel = mythicPlusChampionshipRuns[0].mythic_level
+    result.dungeonName = mythicPlusChampionshipRuns[0].dungeon
+  }
+  return result
 }
 
 let setDateAndTime = (date, time) => {
@@ -78,7 +85,9 @@ class CharacterIOCard extends React.Component {
       twitch: props.twitch,
       picture: props.picture,
       mythicPlusChampionshipRuns: props.mythicPlusChampionshipRuns,
-      score: props.score
+      score: props.score,
+      mythicLevel: props.mythicLevel,
+      dungeonName: props.dungeonName
     }
   }
 
@@ -92,11 +101,10 @@ class CharacterIOCard extends React.Component {
   }
 
   render() {
-    const { isLoaded, twitch, picture, charName, score, mythicPlusChampionshipRuns } = this.state
+    const { isLoaded, twitch, picture, charName, score, mythicPlusChampionshipRuns, mythicLevel, dungeonName } = this.state
     if (!isLoaded) {
       return <div>Loading...</div>
     } else if (raiderIODataResult) {
-      
 
       return (
         <div className="col s12 m4">
@@ -109,8 +117,8 @@ class CharacterIOCard extends React.Component {
                   <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
-                  <h3 className="card-title center grey-text text-darken-4">{score}</h3>
-                  <p><a href={twitch} targer="_blank">{twitch}</a></p>
+                  <p className="card-title center grey-text text-darken-4">{mythicLevel} - {dungeonName}</p>
+                  <p><a href={twitch} target="_blank">{twitch}</a></p>
                 </div>
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
@@ -142,24 +150,37 @@ let findCompetitors = () => {
     .then(rows => {
       rows.forEach(row => {
         if (row.hasOwnProperty('NomeDoPersonagem') && row.hasOwnProperty('ReinoDoPersonagem')) {
-          competitors.push(row)          
+          competitors.push(row)
         }
       })
-      
+
 
       let competitorResults = competitors.map(competitor => {
         return findCharacterIOData(competitor, (raiderIoData) => {
-          competitor.score = calculateMythicScore(filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora)))
+          let validChampionshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora))
+          let highestMythicKey = findHighestMythicKey(validChampionshipRuns)
+
+          competitor.score = highestMythicKey.score
+          competitor.mythicLevel = highestMythicKey.mythicLevel
+          competitor.dungeonName = highestMythicKey.dungeonName
           competitor.charPicture = setHtmlAttribute(raiderIoData.thumbnail_url, competitor.LinkDaFoto)
           competitor.charLink = setHtmlAttribute(raiderIoData.profile_url, competitor.LinkDaTwitch)
-          competitor.raiderIoData = raiderIoData
+          competitor.raiderIoData = validChampionshipRuns.sort((a, b) => b.mythicLevel - a.mythicLevel)
           return competitor
         })
       })
-      console.log(competitorResults)
 
       Promise.all(competitorResults).then((values) => {
-        values.sort((a, b) => b.score - a.score)
+
+        values.sort((a, b) => {
+          let bMythicLevel = b.mythicLevel == undefined ? 0 : b.mythicLevel
+          let aMythicLevel = a.mythicLevel == undefined ? 0 : a.mythicLevel
+          if (bMythicLevel == aMythicLevel) {
+            return b.score - a.score
+          }
+          return bMythicLevel - aMythicLevel
+        })
+
         values.forEach(competitor => {
           const reactCardDom = addElementDiv("#root", "react-card")
           const root = ReactDOM.createRoot(reactCardDom)
@@ -171,8 +192,10 @@ let findCompetitors = () => {
               time: competitor.Hora,
               twitch: competitor.charLink,
               picture: competitor.charPicture,
-              mythicPlusChampionshipRuns: filterMythicPlusChampionshipRuns(competitor.raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora)),
-              score: competitor.score
+              mythicPlusChampionshipRuns: filterMythicPlusChampionshipRuns(competitor.raiderIoData, setDateAndTime(competitor.Data, competitor.Hora)),
+              score: competitor.score,
+              mythicLevel: competitor.mythicLevel,
+              dungeonName: competitor.dungeonName
             })
           )
         })
