@@ -13,7 +13,10 @@ let convertDateToJSDate = (date) => {
 let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipDate) => {
   return mythicPlusRuns.filter((currentValue) => {
     return convertDateToJSDate(currentValue.completed_at) > championshipDate
-  })
+  }).sort((a, b) => b.mythic_level - a.mythic_level)
+}
+let isDepletedKey = (dungeon) => {
+  return dungeon.clear_time_ms > dungeon.par_time_ms
 }
 let addElement = (parentDiv, elementType, callback) => {
   const newDiv = document.createElement(elementType)
@@ -30,7 +33,7 @@ let addElementDiv = (parentDivID, className) => {
 
 let findHighestMythicKey = (mythicPlusChampionshipRuns) => {
   let result = []
-  mythicPlusChampionshipRuns.sort((a, b) => b.mythic_level - a.mythic_level)
+  
   if (mythicPlusChampionshipRuns.length > 0) {
     result.score = mythicPlusChampionshipRuns[0].score
     result.mythicLevel = mythicPlusChampionshipRuns[0].mythic_level
@@ -124,9 +127,9 @@ class CharacterIOCard extends React.Component {
                   <span className="card-title grey-text text-darken-4 center">{score}<i className="material-icons right">close</i></span>
                   <ul className="collection">
                     {mythicPlusChampionshipRuns.map((item, index) => (
-                      <li key={index} className="collection-item">
+                      <li key={index} className={isDepletedKey(item) ? "collection-item red" : "collection-item"}>
                         {item.mythic_level}-{item.dungeon}: <span className="right">{item.score}</span>
-                      </li>
+                      </li>                      
                     ))}
                   </ul>
                 </div>
@@ -157,15 +160,14 @@ let findCompetitors = () => {
 
       let competitorResults = competitors.map(competitor => {
         return findCharacterIOData(competitor, (raiderIoData) => {
-          let validChampionshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora))
-          let highestMythicKey = findHighestMythicKey(validChampionshipRuns)
-
+          let championshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora))
+          let highestMythicKey = findHighestMythicKey(championshipRuns.filter(dungeon => !isDepletedKey(dungeon)))
           competitor.score = highestMythicKey.score
           competitor.mythicLevel = highestMythicKey.mythicLevel
           competitor.dungeonName = highestMythicKey.dungeonName
           competitor.charPicture = setHtmlAttribute(raiderIoData.thumbnail_url, competitor.LinkDaFoto)
           competitor.charLink = setHtmlAttribute(raiderIoData.profile_url, competitor.LinkDaTwitch)
-          competitor.raiderIoData = validChampionshipRuns.sort((a, b) => b.mythicLevel - a.mythicLevel)
+          competitor.championshipRuns = championshipRuns
           return competitor
         })
       })
@@ -192,7 +194,7 @@ let findCompetitors = () => {
               time: competitor.Hora,
               twitch: competitor.charLink,
               picture: competitor.charPicture,
-              mythicPlusChampionshipRuns: filterMythicPlusChampionshipRuns(competitor.raiderIoData, setDateAndTime(competitor.Data, competitor.Hora)),
+              mythicPlusChampionshipRuns: competitor.championshipRuns,
               score: competitor.score,
               mythicLevel: competitor.mythicLevel,
               dungeonName: competitor.dungeonName
