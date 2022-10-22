@@ -62,7 +62,7 @@ let setHtmlAttribute = (atrib1, atrib2) => {
 }
 let findCharacterIOData = (characterIOData, callback) => {
   let GET_URL = `${BASE_URL}?region=${region}&realm=${characterIOData.ReinoDoPersonagem}&name=${characterIOData.NomeDoPersonagem}&fields=${fields}`
-  return fetch(GET_URL)
+  return fetch(encodeURI(GET_URL))
     .then(res => res.json())
     .then(
       (result) => {
@@ -152,7 +152,7 @@ let findCompetitors = () => {
     .then(res => res.json())
     .then(rows => {
       rows.forEach(row => {
-        if (row.hasOwnProperty('NomeDoPersonagem') && row.hasOwnProperty('ReinoDoPersonagem')) {
+        if (row.hasOwnProperty('NomeDoPersonagem') && row.hasOwnProperty('ReinoDoPersonagem') && row.NomeDoPersonagem != '') {
           competitors.push(row)
         }
       })
