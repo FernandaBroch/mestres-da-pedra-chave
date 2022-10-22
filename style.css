@@ -4,4 +4,5 @@ body {
 
 .card .card-title{
   font-size: 18px;
+  min-width: 100%;
 }

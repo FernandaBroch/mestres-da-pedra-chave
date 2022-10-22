@@ -104,7 +104,7 @@ class CharacterIOCard extends React.Component {
   }
 
   render() {
-    const { isLoaded, twitch, picture, charName, score, mythicPlusChampionshipRuns, mythicLevel, dungeonName } = this.state
+    const { isLoaded, twitch, picture, charName, realm, score, mythicPlusChampionshipRuns, mythicLevel, dungeonName } = this.state
     if (!isLoaded) {
       return <div>Loading...</div>
     } else if (raiderIODataResult) {
@@ -116,7 +116,7 @@ class CharacterIOCard extends React.Component {
               <div className="card">
                 <div className="card-image activator">
                   <img src={picture} alt="Character Image" />
-                  <span className="card-title">{charName}</span>
+                  <span className="card-title black-text blue lighten-5">{charName} - {realm}</span>
                   <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
