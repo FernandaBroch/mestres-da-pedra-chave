@@ -62,6 +62,7 @@ let setHtmlAttribute = (atrib1, atrib2) => {
 }
 let findCharacterIOData = (characterIOData, callback) => {
   let GET_URL = `${BASE_URL}?region=${region}&realm=${characterIOData.ReinoDoPersonagem}&name=${characterIOData.NomeDoPersonagem}&fields=${fields}`
+  console.log(encodeURI(GET_URL))
   return fetch(encodeURI(GET_URL))
     .then(res => res.json())
     .then(
