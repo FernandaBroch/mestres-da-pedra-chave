@@ -62,7 +62,6 @@ let setHtmlAttribute = (atrib1, atrib2) => {
 }
 let findCharacterIOData = (characterIOData, callback) => {
   let GET_URL = `${BASE_URL}?region=${region}&realm=${characterIOData.ReinoDoPersonagem}&name=${characterIOData.NomeDoPersonagem}&fields=${fields}`
-  console.log(encodeURI(GET_URL))
   return fetch(encodeURI(GET_URL))
     .then(res => res.json())
     .then(
@@ -91,7 +90,8 @@ class CharacterIOCard extends React.Component {
       mythicPlusChampionshipRuns: props.mythicPlusChampionshipRuns,
       score: props.score,
       mythicLevel: props.mythicLevel,
-      dungeonName: props.dungeonName
+      dungeonName: props.dungeonName,
+      raiderIoProfileUrl: props.raiderIoProfileUrl
     }
   }
 
@@ -105,7 +105,7 @@ class CharacterIOCard extends React.Component {
   }
 
   render() {
-    const { isLoaded, twitch, picture, charName, realm, score, mythicPlusChampionshipRuns, mythicLevel, dungeonName } = this.state
+    const { raiderIoProfileUrl, isLoaded, twitch, picture, charName, realm, score, mythicPlusChampionshipRuns, mythicLevel, dungeonName } = this.state
     if (!isLoaded) {
       return <div>Loading...</div>
     } else if (raiderIODataResult) {
@@ -117,7 +117,7 @@ class CharacterIOCard extends React.Component {
               <div className="card">
                 <div className="card-image activator">
                   <img src={picture} alt="Character Image" />
-                  <span className="card-title black-text blue lighten-5">{charName} - {realm}</span>
+                  <a href={raiderIoProfileUrl} target="_blank"><span className="card-title purple-text blue lighten-5">{charName} - {realm}</span></a>
                   <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
@@ -169,6 +169,7 @@ let findCompetitors = () => {
           competitor.charPicture = setHtmlAttribute(raiderIoData.thumbnail_url, competitor.LinkDaFoto)
           competitor.charLink = setHtmlAttribute(raiderIoData.profile_url, competitor.LinkDaTwitch)
           competitor.championshipRuns = championshipRuns
+          competitor.raiderIoProfileUrl = raiderIoData.profile_url
           return competitor
         })
       })
@@ -198,7 +199,8 @@ let findCompetitors = () => {
               mythicPlusChampionshipRuns: competitor.championshipRuns,
               score: competitor.score,
               mythicLevel: competitor.mythicLevel,
-              dungeonName: competitor.dungeonName
+              dungeonName: competitor.dungeonName,
+              raiderIoProfileUrl: competitor.raiderIoProfileUrl
             })
           )
         })
