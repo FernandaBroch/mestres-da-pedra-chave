@@ -10,10 +10,10 @@ let errorResult = null
 let convertDateToJSDate = (date) => {
   return new Date(date)
 }
-let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipDate) => {
+let filterMythicPlusChampionshipRuns = (mythicPlusRuns, championshipInitialDate, championshipFinalDate) => {
   return mythicPlusRuns.filter((currentValue) => {
-    return convertDateToJSDate(currentValue.completed_at) > championshipDate
-  }).sort((a, b) => b.mythic_level - a.mythic_level)
+    return convertDateToJSDate(currentValue.completed_at) > championshipInitialDate && convertDateToJSDate(currentValue.completed_at) < championshipFinalDate
+  })
 }
 let isDepletedKey = (dungeon) => {
   return dungeon.clear_time_ms > dungeon.par_time_ms
@@ -161,7 +161,8 @@ let findCompetitors = () => {
 
       let competitorResults = competitors.map(competitor => {
         return findCharacterIOData(competitor, (raiderIoData) => {
-          let championshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.Data, competitor.Hora))
+          console.log(setDateAndTime(competitor.DataFim, competitor.HoraFim))
+          let championshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.DataInicio, competitor.HoraInicio), setDateAndTime(competitor.DataFim, competitor.HoraFim))
           let highestMythicKey = findHighestMythicKey(championshipRuns.filter(dungeon => !isDepletedKey(dungeon)))
           competitor.score = highestMythicKey.score
           competitor.mythicLevel = highestMythicKey.mythicLevel
