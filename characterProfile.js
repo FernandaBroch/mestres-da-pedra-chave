@@ -32,8 +32,10 @@ let addElementDiv = (parentDivID, className) => {
 }
 
 let findHighestMythicKey = (mythicPlusChampionshipRuns) => {
-  let result = []
-  
+  let result = []  
+  mythicPlusChampionshipRuns.sort((a, b) => {
+    return b.score - a.score          
+  }) 
   if (mythicPlusChampionshipRuns.length > 0) {
     result.score = mythicPlusChampionshipRuns[0].score
     result.mythicLevel = mythicPlusChampionshipRuns[0].mythic_level
@@ -161,7 +163,6 @@ let findCompetitors = () => {
 
       let competitorResults = competitors.map(competitor => {
         return findCharacterIOData(competitor, (raiderIoData) => {
-          console.log(setDateAndTime(competitor.DataFim, competitor.HoraFim))
           let championshipRuns = filterMythicPlusChampionshipRuns(raiderIoData.mythic_plus_recent_runs, setDateAndTime(competitor.DataInicio, competitor.HoraInicio), setDateAndTime(competitor.DataFim, competitor.HoraFim))
           let highestMythicKey = findHighestMythicKey(championshipRuns.filter(dungeon => !isDepletedKey(dungeon)))
           competitor.score = highestMythicKey.score
@@ -176,16 +177,10 @@ let findCompetitors = () => {
       })
 
       Promise.all(competitorResults).then((values) => {
-
         values.sort((a, b) => {
-          let bMythicLevel = b.mythicLevel == undefined ? 0 : b.mythicLevel
-          let aMythicLevel = a.mythicLevel == undefined ? 0 : a.mythicLevel
-          if (bMythicLevel == aMythicLevel) {
-            return b.score - a.score
-          }
-          return bMythicLevel - aMythicLevel
-        })
-
+            return b.score - a.score          
+        }) 
+        
         values.forEach(competitor => {
           const reactCardDom = addElementDiv("#root", "react-card")
           const root = ReactDOM.createRoot(reactCardDom)
