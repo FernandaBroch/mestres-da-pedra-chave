@@ -7,6 +7,7 @@ let fields = "mythic_plus_recent_runs"
 let raiderIODataResult = []
 let errorResult = null
 
+
 let convertDateToJSDate = (date) => {
   return new Date(date)
 }
@@ -64,11 +65,12 @@ let setHtmlAttribute = (atrib1, atrib2) => {
 }
 let findCharacterIOData = (characterIOData, callback) => {
   let GET_URL = `${BASE_URL}?region=${region}&realm=${characterIOData.ReinoDoPersonagem}&name=${characterIOData.NomeDoPersonagem}&fields=${fields}`
+  GET_URL = `23Oct2022/20/${characterIOData.ReinoDoPersonagem}_${characterIOData.NomeDoPersonagem}.json`
   return fetch(encodeURI(GET_URL))
     .then(res => res.json())
     .then(
       (result) => {
-        raiderIODataResult.push(result)
+        raiderIODataResult.push(result)        
         return callback(result)
       },
       (error) => {
@@ -148,9 +150,8 @@ class CharacterIOCard extends React.Component {
 let findCompetitors = () => {
   let competitors = []
   let spreadsheet_id = "1a0JC-J--zD4qBdt9jAiEucNEGAbl0ppOz82qH1wQ7d4"
-  let sheet_name = "tabela"
+  let sheet_name = "DiaDois"  
   const GOOGLE_SHEET_URL = `https://opensheet.elk.sh/${spreadsheet_id}/${sheet_name}`
-
   fetch(GOOGLE_SHEET_URL)
     .then(res => res.json())
     .then(rows => {

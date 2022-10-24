@@ -1,0 +1,449 @@
+{
+  "name": "Naosaber",
+  "race": "Blood Elf",
+  "class": "Priest",
+  "active_spec_name": "Holy",
+  "active_spec_role": "HEALING",
+  "gender": "female",
+  "faction": "horde",
+  "achievement_points": 9460,
+  "honorable_kills": 0,
+  "thumbnail_url": "https://render-us.worldofwarcraft.com/character/azralon/21/191666709-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg",
+  "region": "us",
+  "realm": "Azralon",
+  "last_crawled_at": "2022-10-22T21:32:02.000Z",
+  "profile_url": "https://raider.io/characters/us/azralon/Naosaber",
+  "profile_banner": "hordebanner1",
+  "mythic_plus_recent_runs": [
+      {
+          "dungeon": "Grimrail Depot",
+          "short_name": "GD",
+          "mythic_level": 19,
+          "completed_at": "2022-10-22T20:57:18.000Z",
+          "clear_time_ms": 1554264,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 166,
+          "zone_id": 6984,
+          "score": 146.7,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9781901-19-grimrail-depot"
+      },
+      {
+          "dungeon": "Mechagon Junkyard",
+          "short_name": "YARD",
+          "mythic_level": 20,
+          "completed_at": "2022-10-22T20:29:03.000Z",
+          "clear_time_ms": 2645026,
+          "par_time_ms": 2280999,
+          "num_keystone_upgrades": 0,
+          "map_challenge_mode_id": 369,
+          "zone_id": 800001,
+          "score": 143,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9780490-20-operation-mechagon-junkyard"
+      },
+      {
+          "dungeon": "Return to Karazhan: Upper",
+          "short_name": "UPPR",
+          "mythic_level": 20,
+          "completed_at": "2022-10-22T19:21:15.000Z",
+          "clear_time_ms": 2041822,
+          "par_time_ms": 2100999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 234,
+          "zone_id": 999999,
+          "score": 150.4,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9776504-20-return-to-karazhan-upper"
+      },
+      {
+          "dungeon": "Tazavesh: Streets of Wonder",
+          "short_name": "STRT",
+          "mythic_level": 18,
+          "completed_at": "2022-10-22T18:43:24.000Z",
+          "clear_time_ms": 1694687,
+          "par_time_ms": 2340999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 391,
+          "zone_id": 1000000,
+          "score": 143.5,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9776474-18-tazavesh-streets-of-wonder"
+      },
+      {
+          "dungeon": "Tazavesh: So'leah's Gambit",
+          "short_name": "GMBT",
+          "mythic_level": 17,
+          "completed_at": "2022-10-22T18:13:24.000Z",
+          "clear_time_ms": 1768424,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 392,
+          "zone_id": 1000001,
+          "score": 135.2,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9773424-17-tazavesh-soleahs-gambit"
+      },
+      {
+          "dungeon": "Tazavesh: Streets of Wonder",
+          "short_name": "STRT",
+          "mythic_level": 15,
+          "completed_at": "2022-10-22T17:41:39.000Z",
+          "clear_time_ms": 1532422,
+          "par_time_ms": 2340999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 391,
+          "zone_id": 1000000,
+          "score": 129.3,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9773503-15-tazavesh-streets-of-wonder"
+      },
+      {
+          "dungeon": "Grimrail Depot",
+          "short_name": "GD",
+          "mythic_level": 15,
+          "completed_at": "2022-10-20T23:38:30.000Z",
+          "clear_time_ms": 1342258,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 2,
+          "map_challenge_mode_id": 166,
+          "zone_id": 6984,
+          "score": 128.2,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9704098-15-grimrail-depot"
+      },
+      {
+          "dungeon": "Iron Docks",
+          "short_name": "ID",
+          "mythic_level": 15,
+          "completed_at": "2022-10-18T21:54:13.000Z",
+          "clear_time_ms": 1622720,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 169,
+          "zone_id": 6951,
+          "score": 126.2,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9620785-15-iron-docks"
+      },
+      {
+          "dungeon": "Tazavesh: So'leah's Gambit",
+          "short_name": "GMBT",
+          "mythic_level": 15,
+          "completed_at": "2022-10-18T21:17:29.000Z",
+          "clear_time_ms": 1649957,
+          "par_time_ms": 1800999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 392,
+          "zone_id": 1000001,
+          "score": 126,
+          "affixes": [
+              {
+                  "id": 10,
+                  "name": "Fortified",
+                  "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+                  "icon": "ability_toughness",
+                  "wowhead_url": "https://wowhead.com/affix=10"
+              },
+              {
+                  "id": 123,
+                  "name": "Spiteful",
+                  "description": "Fiends rise from the corpses of non-boss enemies and pursue random players.",
+                  "icon": "spell_holy_prayerofshadowprotection",
+                  "wowhead_url": "https://wowhead.com/affix=123"
+              },
+              {
+                  "id": 4,
+                  "name": "Necrotic",
+                  "description": "All enemies' melee attacks apply a stacking blight that inflicts damage over time and reduces healing received.",
+                  "icon": "spell_deathknight_necroticplague",
+                  "wowhead_url": "https://wowhead.com/affix=4"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/9618847-15-tazavesh-soleahs-gambit"
+      },
+      {
+          "dungeon": "Return to Karazhan: Lower",
+          "short_name": "LOWR",
+          "mythic_level": 15,
+          "completed_at": "2022-10-01T19:52:13.000Z",
+          "clear_time_ms": 2184481,
+          "par_time_ms": 2520999,
+          "num_keystone_upgrades": 1,
+          "map_challenge_mode_id": 227,
+          "zone_id": 999998,
+          "score": 126.7,
+          "affixes": [
+              {
+                  "id": 9,
+                  "name": "Tyrannical",
+                  "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+                  "icon": "achievement_boss_archaedas",
+                  "wowhead_url": "https://wowhead.com/affix=9"
+              },
+              {
+                  "id": 8,
+                  "name": "Sanguine",
+                  "description": "When slain, non-boss enemies leave behind a lingering pool of ichor that heals their allies and damages players.",
+                  "icon": "spell_shadow_bloodboil",
+                  "wowhead_url": "https://wowhead.com/affix=8"
+              },
+              {
+                  "id": 124,
+                  "name": "Storming",
+                  "description": "While in combat, enemies periodically summon damaging whirlwinds.",
+                  "icon": "spell_nature_cyclone",
+                  "wowhead_url": "https://wowhead.com/affix=124"
+              },
+              {
+                  "id": 131,
+                  "name": "Shrouded",
+                  "description": "Nathrezim infiltrators have disguised themselves among enemies throughout the dungeon. Cartel Ta will reward you handsomely for assisting in their capture.",
+                  "icon": "spell_shadow_nethercloak",
+                  "wowhead_url": "https://wowhead.com/affix=131"
+              }
+          ],
+          "url": "https://raider.io/mythic-plus-runs/season-sl-4/8518753-15-return-to-karazhan-lower"
+      }
+  ]
+}
